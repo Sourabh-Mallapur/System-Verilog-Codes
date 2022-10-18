@@ -4,7 +4,7 @@ module asresettableregister(input logic clk, reset,
                             input logic [3:0]d,
                             output logic [3:0]q);
     always_ff @ (posedge clk, posedge reset)
-        initial begin
+        begin
             if (reset)
                 q <= 4'b000;
             else
@@ -37,7 +37,7 @@ module asresettableregister(input logic clk, reset,
                             input logic [3:0]d,
                             output logic [3:0]q);
     always_ff @ (posedge clk)
-        initial begin
+        begin
             if (reset)
                 q <= 4'b000;
             else
