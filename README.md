@@ -7,7 +7,7 @@ These Codes are for a variety of topics and Testbench Codes are also included.
 - EDA Playground is also a Good Option for a free online Simulator
 
 ## Note for Running Code on EDA Playground
-if you want to observe the simulatio graph you will need to include the following code into your testbench (on the Mentor Questa Simulation at least)
+if you want to observe the simulation graph you will need to include the following code into your testbench (on the Mentor Questa Simulation at least)
 ```
 initial begin
   $dumpfile("dump.vcd");
