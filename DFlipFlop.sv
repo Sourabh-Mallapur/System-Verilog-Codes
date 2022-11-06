@@ -1,4 +1,4 @@
-// Write HDL Code For D FlipFlop 
+// Write HdL Code For D FlipFlop 
  
 module Dflipflop (input logic [3:0]d,
             input logic clk,
@@ -7,24 +7,25 @@ module Dflipflop (input logic [3:0]d,
     begin
         q <= d;
         qbar <= ~q;
+    end
 endmodule
  
 
 // Testbench
-module Dflipflop_tb();
+module dflipflop_tb();
 logic clk;
-logic [3:0]D, q, qbar;
-Dflipflop dut(clk, D, q, qbar);
+logic [3:0]d, q, qbar;
+dflipflop dut(clk, d, q, qbar);
     initial begin
         clk = 0;
         forever 
         #5 clk = ~clk;
     end
     initial begin
-        D = 0;
-        #10 D = 1;
-        #10 D = 0;
-        #12 D = 1;
-        #8 D = 0;
+        d = 0;
+        #10 d = 1;
+        #10 d = 0;
+        #12 d = 1;
+        #8 d = 0;
     end
 endmodule

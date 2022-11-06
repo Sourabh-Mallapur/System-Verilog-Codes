@@ -1,5 +1,14 @@
-// Write HDL Code For JK FlipFlop 
+// Write HDL Code For JK FlipFlop
  
+//  Truth Table
+// ---------------
+// | J | K |  q  |
+// | 0 | 0 |qprev|
+// | 0 | 1 |  1  |
+// | 0 | 0 |  0  |
+// | 0 | 0 | ~q  |
+// ---------------
+
 module JK (input logic clk, J, K,
             output logic q;
     always_ff @( posedge clk ) 
