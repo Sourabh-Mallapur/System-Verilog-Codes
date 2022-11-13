@@ -2,7 +2,7 @@
 module flopenr(input logic clk, reset, en,
                 input logic [3:0] d,
                 output logic [3:0] q);
-    always_ff (posedge clk, posedge reset)
+    always_ff @(posedge clk, posedge reset)
         if (reset) q <= 4'b000;
         else if (en) q <= d;
 endmodule
@@ -25,5 +25,6 @@ module flopenr_tb();
         #5 d = 0;
         #2 en = 1;
         #5 d = 1;
+        #5 $finish;
     end
 endmodule
