@@ -11,7 +11,7 @@ endmodule
 module flopenr_tb();
     logic [3:0] d, q;
     logic clk, reset, en;
-    asresettableregister dut(clk, reset, en, d, q);
+    flopenr dut(clk, reset, en, d, q);
     initial begin
         clk = 0;
         forever 
