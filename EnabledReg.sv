@@ -1,6 +1,6 @@
 // Enabled Registers
 module flopenr(input logic clk, reset, en,
-                intput logic [3:0] d,
+                input logic [3:0] d,
                 output logic [3:0] q);
     always_ff (posedge clk, posedge reset)
         if (reset) q <= 4'b000;
@@ -10,7 +10,7 @@ endmodule
 // Testbench
 module flopenr_tb();
     logic [3:0] d, q;
-    logic clk, reset;
+    logic clk, reset, en;
     asresettableregister dut(clk, reset, en, d, q);
     initial begin
         clk = 0;
