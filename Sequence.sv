@@ -1,6 +1,6 @@
 // Write HDL code for detecting sequence 010101 with overlap
 module MooreFSM( input logic clk, reset, a, output logic y);
-    typedef enum logic {s0, s1, s2, s3, s4, s5, s6} statetype;
+    typedef enum logic [2:0] {s0, s1, s2, s3, s4, s5, s6} statetype;
     statetype state, nextstate;
 
     always_ff @( posedge clk, posedge reset )
@@ -26,14 +26,12 @@ module MooreFSM( input logic clk, reset, a, output logic y);
                 else nextstate = s5;
             default: nextstate = s0;
         endcase
-    
-
     assign y = (state == s6);
 endmodule
 
 
 module MealyFSM( input logic clk, reset, a, output logic y);
-    typedef enum logic {s0, s1, s2, s3, s4, s5} statetype;
+    typedef enum logic [2:0] {s0, s1, s2, s3, s4, s5} statetype;
     statetype state, nextstate;
 
     always_ff @( posedge clk, posedge reset )
@@ -58,4 +56,31 @@ module MealyFSM( input logic clk, reset, a, output logic y);
         endcase
     
     assign y = (state == s5 & a);
+endmodule
+
+// Code your testbench here
+// or browse Examples
+module MooreFSM_tb();
+  logic clk, reset, a, y;
+  MooreFSM dut(clk,reset,a,y);
+  initial begin
+  clk=0; reset = 0;
+  forever #5 clk=~clk;
+  end
+initial begin
+#20   a = 0;
+#10   a=1;
+#10   a=0;
+#10   a=1;
+#10   a=0;
+#10   a =1;
+#10   a = 0;
+#10   a = 1;
+#20 $finish;
+end
+  initial begin
+  $dumpfile("dump.vcd");
+  $dumpvars;
+  #10000 $finish;
+  end
 endmodule
